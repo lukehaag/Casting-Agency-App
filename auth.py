@@ -1,10 +1,12 @@
 import json
+import os
+
 from flask import request, _request_ctx_stack, abort, jsonify
 from functools import wraps
 from urllib.request import urlopen
 from jose import jwt
 
-AUTH0_DOMAIN = 'lkhg.us.auth0.com'
+AUTH0_DOMAIN = os.environ['AUTH0_DOMAIN']
 ALGORITHMS = ['RS256']
 API_AUDIENCE = 'agency'
 
