@@ -27,4 +27,4 @@ rsa==4.9
 six==1.16.0
 SQLAlchemy==1.4.18
 Werkzeug==2.0.1
-jose=1.0.0
+jose==1.0.0
