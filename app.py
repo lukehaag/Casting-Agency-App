@@ -4,7 +4,7 @@ from models import setup_db, Actor, Movie
 from flask_cors import CORS
 from auth import requires_auth, AuthError
 import json
-from flask import render_template, session, url_for, redirect
+# from flask import render_template, session, url_for, redirect
 
 
 def create_app(test_config=None):
