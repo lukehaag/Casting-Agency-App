@@ -5,4 +5,5 @@ export AUTH0_DOMAIN="lkhg.us.auth0.com"
 export EXCITED="true"
 export API_AUDIENCE="agency"
 export ALGORITHMS='RS256'
+export FLASK_APP=app.py
 echo "setup.sh script executed successfully!"
