@@ -5,7 +5,6 @@ from flask_cors import CORS
 from auth import requires_auth, AuthError
 import json
 from flask import render_template, session, url_for, redirect
-from templates import *
 
 
 def create_app(test_config=None):
@@ -23,10 +22,6 @@ def create_app(test_config=None):
         response.headers.add('Access-Control-Allow-Methods',
                              'GET,PATCH,POST,DELETE,OPTIONS')
         return response
-
-    @app.route('/')
-    def index():
-        return render_template('index.html')
 
     @app.route('/actors', methods=['GET'])
     @requires_auth('get:actors')
@@ -53,7 +48,7 @@ def create_app(test_config=None):
 
             return jsonify({
                 'success': True,
-                'actors': actor.format()
+                'actors': [actor.format()]
             }), 200
 
         except Exception as e:
