@@ -4,16 +4,19 @@ from flask_sqlalchemy import SQLAlchemy
 import json
 from datetime import datetime
 
-database_path = os.environ['DATABASE_URL']
+# database variable for local testing
+# database_path = "postgresql://lukehaag@localhost:5432/postgres"
+
+database_path = os.environ["DATABASE_URL"]
 if database_path.startswith("postgres://"):
     database_path = database_path.replace("postgres://", "postgresql://", 1)
 
 db = SQLAlchemy()
 
-'''
+"""
 setup_db(app)
     binds a flask application and a SQLAlchemy service
-'''
+"""
 
 
 def setup_db(app, database_path=database_path):
@@ -24,38 +27,10 @@ def setup_db(app, database_path=database_path):
     db.create_all()
 
 
-# def db_drop_and_create_all():
-#     db.drop_all()
-#     db.create_all()
-#
-#     actor = Actor(
-#         name='John Doe',
-#         age=24,
-#         gender='Male'
-#     )
-#
-#     movie = Movie(
-#         title='Cool Movie Bro',
-#         release_date=datetime.now()
-#     )
-#
-#     actor.insert()
-#     movie.insert()
-
-
-# def setup_db(app):
-#     app.config["SQLALCHEMY_DATABASE_URI"] = \
-#         'postgresql://lukehaag@localhost:5432/postgres'
-#     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-#     db.app = app
-#     db.init_app(app)
-#     db_drop_and_create_all()
-
-
-'''
+"""
 Person
 Have title and release year
-'''
+"""
 
 
 class Actor(db.Model):
@@ -77,10 +52,10 @@ class Actor(db.Model):
 
     def format(self):
         return {
-            'id': self.id,
-            'name': self.name,
-            'age': self.age,
-            'gender': self.gender
+            "id": self.id,
+            "name": self.name,
+            "age": self.age,
+            "gender": self.gender,
         }
 
 
@@ -101,8 +76,4 @@ class Movie(db.Model):
         db.session.commit()
 
     def format(self):
-        return {
-            'id': self.id,
-            'title': self.title,
-            'release_date': self.release_date
-        }
+        return {"id": self.id, "title": self.title, "release_date": self.release_date}
