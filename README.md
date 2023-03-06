@@ -199,7 +199,7 @@ The following endpoints have been set up. I've included a collection of postman 
     ```
 ## Unit Tests ##
 
-To run the unit tests create a test database and run the following command:
+To run the unit tests, create a test database, and run the following command:
 
 ```bash
 $ Python3 test_app.py
