@@ -5,11 +5,11 @@ import json
 from datetime import datetime
 
 # database variable for local testing
-# database_path = "postgresql://lukehaag@localhost:5432/postgres"
+database_path = "postgresql://lukehaag@localhost:5432/postgres"
 
-database_path = os.environ["DATABASE_URL"]
-if database_path.startswith("postgres://"):
-    database_path = database_path.replace("postgres://", "postgresql://", 1)
+# database_path = os.environ["DATABASE_URL"]
+# if database_path.startswith("postgres://"):
+#     database_path = database_path.replace("postgres://", "postgresql://", 1)
 
 db = SQLAlchemy()
 
